@@ -7,6 +7,7 @@ import type { Technology } from "./types";
 function App() {
   const [stack, setStack] = useState<Technology[]>([]);
 
+  // Add technology to stack
   const handleAddToStack = (technology: Technology) => {
     const alreadyAdded = stack.some(
       (item) => item.id === technology.id
@@ -19,12 +20,14 @@ function App() {
     setStack((previous) => [...previous, technology]);
   };
 
+  // Remove one technology
   const handleRemoveFromStack = (id: string) => {
     setStack((previous) =>
       previous.filter((item) => item.id !== id)
     );
   };
 
+  // Remove all technologies
   const handleRemoveAll = () => {
     setStack([]);
   };
